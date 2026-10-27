@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "app-vision",
+    "name": "Reconocimiento Facial",
     "slug": "app-vision",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -10,15 +10,42 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "cl.duoc.appvision",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
-      }
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-status-bar",
+      [
+        "expo-image-picker",
+        {
+          "cameraPermission": "La app usa la cámara para tomar la foto del rostro que se envía al modelo.",
+          "photosPermission": "La app accede a la galería para elegir la foto del rostro que se envía al modelo."
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "usesCleartextTraffic": true
+          }
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "dc940335-ee63-477a-82f2-aa63b27bee88"
+      }
     }
   }
 }
